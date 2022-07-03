@@ -2,20 +2,21 @@ name: Deploy to ECR
 
 on: push
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
 
   build:
     
     name: Build Image
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@master
+      uses: aws-actions/configure-aws-credentials@8053174404968575ac1dd102dcb1109d2fe6d9ea
       env:
         AWS_WEB_IDENTITY_TOKEN_FILE: /tmp/awscreds
         AWS_ROLE_ARN: arn:aws:iam::758008459664:role/GitHubOIDCRole
