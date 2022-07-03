@@ -16,9 +16,14 @@ jobs:
       uses: actions/checkout@v2
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
+      env:
+        AWS_WEB_IDENTITY_TOKEN_FILE: /tmp/awscreds
+        AWS_ROLE_ARN: arn:aws:iam::123412341234:role/srv_ops
+        AWS_DEFAULT_REGION: us-west-2
       with:
-        role-to-assume: arn:aws:iam::758008459664:role/GitHubOIDCRole
         aws-region: eu-west-1
+        role-to-assume: arn:aws:iam::758008459664:role/GitHubOIDCRole
+        web-identity-token-file: /tmp/awscreds
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
