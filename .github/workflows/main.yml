@@ -15,11 +15,11 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@master
       env:
         AWS_WEB_IDENTITY_TOKEN_FILE: /tmp/awscreds
-        AWS_ROLE_ARN: arn:aws:iam::123412341234:role/srv_ops
-        AWS_DEFAULT_REGION: us-west-2
+        AWS_ROLE_ARN: arn:aws:iam::758008459664:role/GitHubOIDCRole
+        AWS_DEFAULT_REGION: eu-west-1
       with:
         aws-region: eu-west-1
         role-to-assume: arn:aws:iam::758008459664:role/GitHubOIDCRole
