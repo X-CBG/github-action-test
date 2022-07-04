@@ -16,7 +16,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@master
+      uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-region: eu-west-1
         role-to-assume: arn:aws:iam::758008459664:role/GitHubOIDCRole
